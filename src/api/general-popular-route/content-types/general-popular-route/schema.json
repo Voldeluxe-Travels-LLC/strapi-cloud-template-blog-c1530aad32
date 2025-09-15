@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "general_popular_routes",
+  "info": {
+    "singularName": "general-popular-route",
+    "pluralName": "general-popular-routes",
+    "displayName": "General Popular Route"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "From": {
+      "type": "string",
+      "required": true
+    },
+    "To": {
+      "type": "string",
+      "required": true
+    },
+    "Price": {
+      "type": "string",
+      "required": true
+    },
+    "Type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Stop",
+      "enum": [
+        "Stop",
+        "Non-Stop",
+        "Student Friendly",
+        "Family Seating",
+        "Extra Baggage",
+        "Premium Economy",
+        "Business Class"
+      ]
+    },
+    "Class": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Economy",
+      "enum": [
+        "Economy",
+        "Premium Economy",
+        "Business",
+        "First"
+      ]
+    },
+    "Duration": {
+      "type": "string",
+      "required": true
+    },
+    "Baggage": {
+      "type": "string",
+      "required": true
+    },
+    "Airlines": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
