@@ -23,50 +23,6 @@
       "type": "text",
       "required": true
     },
-    "Airline": {
-      "type": "enumeration",
-      "required": true,
-      "enum": [
-        "Air India ",
-        "Emirates ",
-        "Qatar Airlines",
-        "Turkish Airlines ",
-        "Cathay Pacific ",
-        "Ethiad ",
-        "American Airlines",
-        "Lufthansa  ",
-        "Air Canada ",
-        "United Airlines",
-        "Swiss Delta ",
-        "KLM ",
-        "Airfrance ",
-        "Virgin Atlantic ",
-        "Kuwait Airways ",
-        "Gulf Airlines ",
-        "British Airways"
-      ]
-    },
-    "AirlinePrice": {
-      "type": "decimal",
-      "required": true,
-      "min": 1
-    },
-    "LimitedAvailability": {
-      "type": "integer",
-      "required": true,
-      "min": 1
-    },
-    "Offers": {
-      "type": "component",
-      "component": "shared.points",
-      "repeatable": true,
-      "required": true,
-      "min": 1
-    },
-    "Baggage": {
-      "type": "string",
-      "required": true
-    },
     "Cabin": {
       "type": "enumeration",
       "enum": [
@@ -75,6 +31,11 @@
         "Business",
         "First"
       ]
+    },
+    "AirlineCard": {
+      "type": "component",
+      "component": "fields.flight-card",
+      "repeatable": true
     }
   }
 }

@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_fields_flight_cards",
+  "info": {
+    "displayName": "FlightCard",
+    "icon": "plane"
+  },
+  "options": {},
+  "attributes": {
+    "Airline": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Air India ",
+        "Emirates ",
+        "Qatar Airlines",
+        "Turkish Airlines ",
+        "Cathay Pacific ",
+        "Ethiad ",
+        "American Airlines",
+        "Lufthansa  ",
+        "Air Canada ",
+        "United Airlines",
+        "Swiss Delta ",
+        "KLM ",
+        "Air france ",
+        "Virgin Atlantic ",
+        "Kuwait Airways ",
+        "Gulf Airlines ",
+        "British Airways"
+      ]
+    },
+    "PriceHike": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "LimitedAvailability": {
+      "type": "integer",
+      "min": 1
+    },
+    "Baggages": {
+      "type": "string",
+      "required": true
+    },
+    "Offers": {
+      "type": "component",
+      "component": "shared.points",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

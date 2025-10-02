@@ -384,65 +384,19 @@ export interface ApiFlightFlight extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Airline: Schema.Attribute.Enumeration<
-      [
-        'Air India ',
-        'Emirates ',
-        'Qatar Airlines',
-        'Turkish Airlines ',
-        'Cathay Pacific ',
-        'Ethiad ',
-        'American Airlines',
-        'Lufthansa  ',
-        'Air Canada ',
-        'United Airlines',
-        'Swiss Delta ',
-        'KLM ',
-        'Airfrance ',
-        'Virgin Atlantic ',
-        'Kuwait Airways ',
-        'Gulf Airlines ',
-        'British Airways',
-      ]
-    > &
-      Schema.Attribute.Required;
-    AirlinePrice: Schema.Attribute.Decimal &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    Baggage: Schema.Attribute.String & Schema.Attribute.Required;
+    AirlineCard: Schema.Attribute.Component<'fields.flight-card', true>;
     Cabin: Schema.Attribute.Enumeration<
       ['Economy', 'Premium Economy', 'Business', 'First']
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    LimitedAvailability: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::flight.flight'
     > &
       Schema.Attribute.Private;
-    Offers: Schema.Attribute.Component<'shared.points', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
     Price: Schema.Attribute.Text & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     TripType: Schema.Attribute.Enumeration<['One-way', 'Round-trip']> &

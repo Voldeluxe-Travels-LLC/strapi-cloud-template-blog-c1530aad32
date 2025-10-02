@@ -14,6 +14,55 @@ export interface FieldsClass extends Struct.ComponentSchema {
   };
 }
 
+export interface FieldsFlightCard extends Struct.ComponentSchema {
+  collectionName: 'components_fields_flight_cards';
+  info: {
+    displayName: 'FlightCard';
+    icon: 'plane';
+  };
+  attributes: {
+    Airline: Schema.Attribute.Enumeration<
+      [
+        'Air India ',
+        'Emirates ',
+        'Qatar Airlines',
+        'Turkish Airlines ',
+        'Cathay Pacific ',
+        'Ethiad ',
+        'American Airlines',
+        'Lufthansa  ',
+        'Air Canada ',
+        'United Airlines',
+        'Swiss Delta ',
+        'KLM ',
+        'Air france ',
+        'Virgin Atlantic ',
+        'Kuwait Airways ',
+        'Gulf Airlines ',
+        'British Airways',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Baggages: Schema.Attribute.String & Schema.Attribute.Required;
+    LimitedAvailability: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    Offers: Schema.Attribute.Component<'shared.points', true>;
+    PriceHike: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
 export interface FieldsType extends Struct.ComponentSchema {
   collectionName: 'components_fields_types';
   info: {
@@ -112,6 +161,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'fields.class': FieldsClass;
+      'fields.flight-card': FieldsFlightCard;
       'fields.type': FieldsType;
       'shared.media': SharedMedia;
       'shared.points': SharedPoints;
