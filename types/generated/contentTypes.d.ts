@@ -415,6 +415,9 @@ export interface ApiFlightFlight extends Struct.CollectionTypeSchema {
         number
       >;
     Baggage: Schema.Attribute.String & Schema.Attribute.Required;
+    Cabin: Schema.Attribute.Enumeration<
+      ['Economy', 'Premium Economy', 'Business', 'First']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

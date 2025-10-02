@@ -66,6 +66,15 @@
     "Baggage": {
       "type": "string",
       "required": true
+    },
+    "Cabin": {
+      "type": "enumeration",
+      "enum": [
+        "Economy",
+        "Premium Economy",
+        "Business",
+        "First"
+      ]
     }
   }
 }
