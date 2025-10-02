@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_fields_classes",
+  "info": {
+    "displayName": "Class"
+  },
+  "options": {},
+  "attributes": {
+    "Class": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Economy",
+      "enum": [
+        "Economy",
+        "Premium Economy",
+        "Business",
+        "First"
+      ]
+    }
+  },
+  "config": {}
+}

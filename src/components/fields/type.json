@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_fields_types",
+  "info": {
+    "displayName": "Type"
+  },
+  "options": {},
+  "attributes": {
+    "Type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Stop",
+      "enum": [
+        "Stop",
+        "Non-Stop",
+        "Student Friendly",
+        "Family Seating",
+        "Extra Baggage",
+        "Premium Economy",
+        "Business Class"
+      ]
+    }
+  },
+  "config": {}
+}

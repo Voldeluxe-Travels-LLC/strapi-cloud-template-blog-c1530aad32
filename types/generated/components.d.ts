@@ -1,5 +1,41 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface FieldsClass extends Struct.ComponentSchema {
+  collectionName: 'components_fields_classes';
+  info: {
+    displayName: 'Class';
+  };
+  attributes: {
+    Class: Schema.Attribute.Enumeration<
+      ['Economy', 'Premium Economy', 'Business', 'First']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Economy'>;
+  };
+}
+
+export interface FieldsType extends Struct.ComponentSchema {
+  collectionName: 'components_fields_types';
+  info: {
+    displayName: 'Type';
+  };
+  attributes: {
+    Type: Schema.Attribute.Enumeration<
+      [
+        'Stop',
+        'Non-Stop',
+        'Student Friendly',
+        'Family Seating',
+        'Extra Baggage',
+        'Premium Economy',
+        'Business Class',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Stop'>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -8,6 +44,16 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
   attributes: {
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedPoints extends Struct.ComponentSchema {
+  collectionName: 'components_shared_points';
+  info: {
+    displayName: 'Offers';
+  };
+  attributes: {
+    Offer: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -65,7 +111,10 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'fields.class': FieldsClass;
+      'fields.type': FieldsType;
       'shared.media': SharedMedia;
+      'shared.points': SharedPoints;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;

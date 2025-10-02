@@ -373,52 +373,77 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGeneralPopularRouteGeneralPopularRoute
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'general_popular_routes';
+export interface ApiFlightFlight extends Struct.CollectionTypeSchema {
+  collectionName: 'flights';
   info: {
-    displayName: 'General Popular Route';
-    pluralName: 'general-popular-routes';
-    singularName: 'general-popular-route';
+    displayName: 'Flight';
+    pluralName: 'flights';
+    singularName: 'flight';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Airlines: Schema.Attribute.String & Schema.Attribute.Required;
-    Baggage: Schema.Attribute.String & Schema.Attribute.Required;
-    Class: Schema.Attribute.Enumeration<
-      ['Economy', 'Premium Economy', 'Business', 'First']
+    Airline: Schema.Attribute.Enumeration<
+      [
+        'Air India ',
+        'Emirates ',
+        'Qatar Airlines',
+        'Turkish Airlines ',
+        'Cathay Pacific ',
+        'Ethiad ',
+        'American Airlines',
+        'Lufthansa  ',
+        'Air Canada ',
+        'United Airlines',
+        'Swiss Delta ',
+        'KLM ',
+        'Airfrance ',
+        'Virgin Atlantic ',
+        'Kuwait Airways ',
+        'Gulf Airlines ',
+        'British Airways',
+      ]
     > &
+      Schema.Attribute.Required;
+    AirlinePrice: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Economy'>;
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    Baggage: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Duration: Schema.Attribute.String & Schema.Attribute.Required;
-    From: Schema.Attribute.String & Schema.Attribute.Required;
+    LimitedAvailability: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::general-popular-route.general-popular-route'
+      'api::flight.flight'
     > &
       Schema.Attribute.Private;
-    Price: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    To: Schema.Attribute.String & Schema.Attribute.Required;
-    Type: Schema.Attribute.Enumeration<
-      [
-        'Stop',
-        'Non-Stop',
-        'Student Friendly',
-        'Family Seating',
-        'Extra Baggage',
-        'Premium Economy',
-        'Business Class',
-      ]
-    > &
+    Offers: Schema.Attribute.Component<'shared.points', true> &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Stop'>;
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    Price: Schema.Attribute.Text & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    TripType: Schema.Attribute.Enumeration<['One-way', 'Round-trip']> &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -934,7 +959,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::general-popular-route.general-popular-route': ApiGeneralPopularRouteGeneralPopularRoute;
+      'api::flight.flight': ApiFlightFlight;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
