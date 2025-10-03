@@ -384,9 +384,14 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Continent: Schema.Attribute.Enumeration<
+      ['Asia', 'Australia', 'Europe', 'North America', 'South America']
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Deals: Schema.Attribute.Component<'fields.deal-card', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'> &
       Schema.Attribute.Private;
@@ -410,9 +415,8 @@ export interface ApiFlightFlight extends Struct.CollectionTypeSchema {
   attributes: {
     AirlineCard: Schema.Attribute.Component<'fields.flight-card', true> &
       Schema.Attribute.Required;
-    Cabin: Schema.Attribute.Enumeration<
-      ['Economy', 'Premium Economy', 'Business', 'First']
-    >;
+    Cabin: Schema.Attribute.Component<'shared.cabin', false> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

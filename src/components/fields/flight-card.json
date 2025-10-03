@@ -12,7 +12,7 @@
       "enum": [
         "Air India ",
         "Emirates ",
-        "Qatar Airlines",
+        "Qatar Airways",
         "Turkish Airlines ",
         "Cathay Pacific ",
         "Ethiad ",
@@ -20,12 +20,13 @@
         "Lufthansa  ",
         "Air Canada ",
         "United Airlines",
-        "Swiss Delta ",
+        "Swiss ",
+        "Delta Airlines",
         "KLM ",
         "Air france ",
         "Virgin Atlantic ",
         "Kuwait Airways ",
-        "Gulf Airlines ",
+        "Gulf Air ",
         "British Airways"
       ]
     },

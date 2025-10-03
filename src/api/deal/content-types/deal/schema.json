@@ -10,5 +10,22 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "Continent": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Asia",
+        "Australia",
+        "Europe",
+        "North America",
+        "South America"
+      ]
+    },
+    "Deals": {
+      "type": "component",
+      "component": "fields.deal-card",
+      "repeatable": true
+    }
+  }
 }

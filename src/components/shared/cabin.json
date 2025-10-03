@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_cabins",
+  "info": {
+    "displayName": "Cabin"
+  },
+  "options": {},
+  "attributes": {
+    "Cabin": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Economy",
+        "Premium Economy",
+        "Business",
+        "First"
+      ]
+    }
+  },
+  "config": {}
+}

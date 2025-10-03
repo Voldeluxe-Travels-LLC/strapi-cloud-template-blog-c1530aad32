@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_fields_deal_cards",
+  "info": {
+    "displayName": "DealCard"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "From": {
+      "type": "string",
+      "required": true
+    },
+    "To": {
+      "type": "string",
+      "required": true
+    },
+    "Badge": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Popular",
+        "Best Deal",
+        "Hot Deal",
+        "Trending"
+      ]
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "ActualPrice": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "DiscountedPrice": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    }
+  },
+  "config": {}
+}

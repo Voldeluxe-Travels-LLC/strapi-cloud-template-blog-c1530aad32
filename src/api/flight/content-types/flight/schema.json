@@ -23,19 +23,16 @@
       "type": "text",
       "required": true
     },
-    "Cabin": {
-      "type": "enumeration",
-      "enum": [
-        "Economy",
-        "Premium Economy",
-        "Business",
-        "First"
-      ]
-    },
     "AirlineCard": {
       "type": "component",
       "component": "fields.flight-card",
       "repeatable": true,
+      "required": true
+    },
+    "Cabin": {
+      "type": "component",
+      "component": "shared.cabin",
+      "repeatable": false,
       "required": true
     }
   }

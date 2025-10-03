@@ -14,6 +14,40 @@ export interface FieldsClass extends Struct.ComponentSchema {
   };
 }
 
+export interface FieldsDealCard extends Struct.ComponentSchema {
+  collectionName: 'components_fields_deal_cards';
+  info: {
+    displayName: 'DealCard';
+  };
+  attributes: {
+    ActualPrice: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    Badge: Schema.Attribute.Enumeration<
+      ['Popular', 'Best Deal', 'Hot Deal', 'Trending']
+    > &
+      Schema.Attribute.Required;
+    DiscountedPrice: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    From: Schema.Attribute.String & Schema.Attribute.Required;
+    Image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    To: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface FieldsFlightCard extends Struct.ComponentSchema {
   collectionName: 'components_fields_flight_cards';
   info: {
@@ -25,7 +59,7 @@ export interface FieldsFlightCard extends Struct.ComponentSchema {
       [
         'Air India ',
         'Emirates ',
-        'Qatar Airlines',
+        'Qatar Airways',
         'Turkish Airlines ',
         'Cathay Pacific ',
         'Ethiad ',
@@ -33,12 +67,13 @@ export interface FieldsFlightCard extends Struct.ComponentSchema {
         'Lufthansa  ',
         'Air Canada ',
         'United Airlines',
-        'Swiss Delta ',
+        'Swiss ',
+        'Delta Airlines',
         'KLM ',
         'Air france ',
         'Virgin Atlantic ',
         'Kuwait Airways ',
-        'Gulf Airlines ',
+        'Gulf Air ',
         'British Airways',
       ]
     > &
@@ -84,6 +119,19 @@ export interface FieldsType extends Struct.ComponentSchema {
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Stop'>;
+  };
+}
+
+export interface SharedCabin extends Struct.ComponentSchema {
+  collectionName: 'components_shared_cabins';
+  info: {
+    displayName: 'Cabin';
+  };
+  attributes: {
+    Cabin: Schema.Attribute.Enumeration<
+      ['Economy', 'Premium Economy', 'Business', 'First']
+    > &
+      Schema.Attribute.Required;
   };
 }
 
@@ -163,8 +211,10 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'fields.class': FieldsClass;
+      'fields.deal-card': FieldsDealCard;
       'fields.flight-card': FieldsFlightCard;
       'fields.type': FieldsType;
+      'shared.cabin': SharedCabin;
       'shared.media': SharedMedia;
       'shared.points': SharedPoints;
       'shared.quote': SharedQuote;
