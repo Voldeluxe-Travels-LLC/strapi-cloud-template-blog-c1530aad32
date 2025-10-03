@@ -45,13 +45,15 @@ export interface FieldsFlightCard extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     Baggages: Schema.Attribute.String & Schema.Attribute.Required;
     LimitedAvailability: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
           min: 1;
         },
         number
       >;
-    Offers: Schema.Attribute.Component<'shared.points', true>;
+    Offers: Schema.Attribute.Component<'shared.points', true> &
+      Schema.Attribute.Required;
     PriceHike: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<

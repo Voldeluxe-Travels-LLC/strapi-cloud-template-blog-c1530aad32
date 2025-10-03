@@ -35,7 +35,8 @@
     "AirlineCard": {
       "type": "component",
       "component": "fields.flight-card",
-      "repeatable": true
+      "repeatable": true,
+      "required": true
     }
   }
 }

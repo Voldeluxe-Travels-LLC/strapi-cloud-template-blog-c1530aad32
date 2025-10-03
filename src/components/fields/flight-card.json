@@ -36,6 +36,7 @@
     },
     "LimitedAvailability": {
       "type": "integer",
+      "required": true,
       "min": 1
     },
     "Baggages": {
@@ -45,7 +46,8 @@
     "Offers": {
       "type": "component",
       "component": "shared.points",
-      "repeatable": true
+      "repeatable": true,
+      "required": true
     }
   },
   "config": {}
