@@ -45,6 +45,12 @@
       "type": "decimal",
       "required": true,
       "min": 1
+    },
+    "LimitedAvailability": {
+      "type": "integer",
+      "required": true,
+      "unique": false,
+      "min": 1
     }
   },
   "config": {}

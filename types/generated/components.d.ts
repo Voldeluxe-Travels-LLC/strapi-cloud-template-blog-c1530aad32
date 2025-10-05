@@ -29,6 +29,14 @@ export interface FieldsDealCard extends Struct.ComponentSchema {
     From: Schema.Attribute.String & Schema.Attribute.Required;
     Image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
+    LimitedAvailability: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     To: Schema.Attribute.String & Schema.Attribute.Required;
   };
