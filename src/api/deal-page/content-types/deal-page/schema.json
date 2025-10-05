@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "deal_pages",
+  "info": {
+    "singularName": "deal-page",
+    "pluralName": "deal-pages",
+    "displayName": "DealPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}

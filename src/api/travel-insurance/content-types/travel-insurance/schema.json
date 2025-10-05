@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "travel_insurances",
+  "info": {
+    "singularName": "travel-insurance",
+    "pluralName": "travel-insurances",
+    "displayName": "TravelInsurance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_airlines",
+  "info": {
+    "displayName": "Airline"
+  },
+  "options": {},
+  "attributes": {
+    "Airlines": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Air India",
+        "Emirates",
+        "Qatar Airways",
+        "Turkish Airlines",
+        "Cathay Pacific",
+        "Etihad",
+        "American Airlines",
+        "Lufthansa",
+        "Air Canada",
+        "United Airlines",
+        "Swiss",
+        "Delta Airlines",
+        "KLM",
+        "Air France",
+        "Virgin Atlantic",
+        "Kuwait Airways",
+        "Gulf Air",
+        "British Airways"
+      ]
+    }
+  },
+  "config": {}
+}

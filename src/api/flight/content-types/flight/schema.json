@@ -27,7 +27,8 @@
       "type": "component",
       "component": "fields.flight-card",
       "repeatable": true,
-      "required": true
+      "required": true,
+      "min": 1
     },
     "Cabin": {
       "type": "component",

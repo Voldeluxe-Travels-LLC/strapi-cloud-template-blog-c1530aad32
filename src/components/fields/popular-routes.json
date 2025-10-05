@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_fields_popular_routes",
+  "info": {
+    "displayName": "PopularRoutes"
+  },
+  "options": {},
+  "attributes": {
+    "From": {
+      "type": "string",
+      "required": true
+    },
+    "To": {
+      "type": "string",
+      "required": true
+    },
+    "Price": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "LimitedAvailability": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "TripType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Round-Trip",
+        "One-way"
+      ]
+    },
+    "Baggage": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "Cabin": {
+      "type": "component",
+      "component": "shared.cabin",
+      "repeatable": false,
+      "required": true
+    },
+    "Airlines": {
+      "type": "component",
+      "component": "shared.airline",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    }
+  },
+  "config": {}
+}

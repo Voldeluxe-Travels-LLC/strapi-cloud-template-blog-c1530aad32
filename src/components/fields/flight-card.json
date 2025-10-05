@@ -6,30 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "Airline": {
-      "type": "enumeration",
-      "required": true,
-      "enum": [
-        "Air India",
-        "Emirates",
-        "Qatar Airways",
-        "Turkish Airlines",
-        "Cathay Pacific",
-        "Etihad",
-        "American Airlines",
-        "Lufthansa",
-        "Air Canada",
-        "United Airlines",
-        "Swiss",
-        "Delta Airlines",
-        "KLM",
-        "Air France",
-        "Virgin Atlantic",
-        "Kuwait Airways",
-        "Gulf Air",
-        "British Airways"
-      ]
-    },
     "PriceHike": {
       "type": "decimal",
       "required": true,
@@ -40,14 +16,21 @@
       "required": true,
       "min": 1
     },
-    "Baggages": {
+    "Baggage": {
       "type": "string",
+      "minLength": 1,
       "required": true
     },
     "Offers": {
       "type": "component",
       "component": "shared.points",
       "repeatable": true,
+      "required": true
+    },
+    "Airline": {
+      "type": "component",
+      "component": "shared.airline",
+      "repeatable": false,
       "required": true
     }
   },

@@ -1,19 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface FieldsClass extends Struct.ComponentSchema {
-  collectionName: 'components_fields_classes';
-  info: {
-    displayName: 'Class';
-  };
-  attributes: {
-    Class: Schema.Attribute.Enumeration<
-      ['Economy', 'Premium Economy', 'Business', 'First']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Economy'>;
-  };
-}
-
 export interface FieldsDealCard extends Struct.ComponentSchema {
   collectionName: 'components_fields_deal_cards';
   info: {
@@ -55,30 +41,13 @@ export interface FieldsFlightCard extends Struct.ComponentSchema {
     icon: 'plane';
   };
   attributes: {
-    Airline: Schema.Attribute.Enumeration<
-      [
-        'Air India',
-        'Emirates',
-        'Qatar Airways',
-        'Turkish Airlines',
-        'Cathay Pacific',
-        'Etihad',
-        'American Airlines',
-        'Lufthansa',
-        'Air Canada',
-        'United Airlines',
-        'Swiss',
-        'Delta Airlines',
-        'KLM',
-        'Air France',
-        'Virgin Atlantic',
-        'Kuwait Airways',
-        'Gulf Air',
-        'British Airways',
-      ]
-    > &
+    Airline: Schema.Attribute.Component<'shared.airline', false> &
       Schema.Attribute.Required;
-    Baggages: Schema.Attribute.String & Schema.Attribute.Required;
+    Baggage: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
     LimitedAvailability: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -97,6 +66,53 @@ export interface FieldsFlightCard extends Struct.ComponentSchema {
         },
         number
       >;
+  };
+}
+
+export interface FieldsPopularRoutes extends Struct.ComponentSchema {
+  collectionName: 'components_fields_popular_routes';
+  info: {
+    displayName: 'PopularRoutes';
+  };
+  attributes: {
+    Airlines: Schema.Attribute.Component<'shared.airline', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    Baggage: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    Cabin: Schema.Attribute.Component<'shared.cabin', false> &
+      Schema.Attribute.Required;
+    From: Schema.Attribute.String & Schema.Attribute.Required;
+    LimitedAvailability: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    Price: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    To: Schema.Attribute.String & Schema.Attribute.Required;
+    TripType: Schema.Attribute.Enumeration<['Round-Trip', 'One-way']> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -119,6 +135,38 @@ export interface FieldsType extends Struct.ComponentSchema {
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Stop'>;
+  };
+}
+
+export interface SharedAirline extends Struct.ComponentSchema {
+  collectionName: 'components_shared_airlines';
+  info: {
+    displayName: 'Airline';
+  };
+  attributes: {
+    Airlines: Schema.Attribute.Enumeration<
+      [
+        'Air India',
+        'Emirates',
+        'Qatar Airways',
+        'Turkish Airlines',
+        'Cathay Pacific',
+        'Etihad',
+        'American Airlines',
+        'Lufthansa',
+        'Air Canada',
+        'United Airlines',
+        'Swiss',
+        'Delta Airlines',
+        'KLM',
+        'Air France',
+        'Virgin Atlantic',
+        'Kuwait Airways',
+        'Gulf Air',
+        'British Airways',
+      ]
+    > &
+      Schema.Attribute.Required;
   };
 }
 
@@ -189,9 +237,9 @@ export interface SharedSeo extends Struct.ComponentSchema {
     name: 'Seo';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    MetaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    MetaTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    ShareImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
   };
 }
 
@@ -210,10 +258,11 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'fields.class': FieldsClass;
       'fields.deal-card': FieldsDealCard;
       'fields.flight-card': FieldsFlightCard;
+      'fields.popular-routes': FieldsPopularRoutes;
       'fields.type': FieldsType;
+      'shared.airline': SharedAirline;
       'shared.cabin': SharedCabin;
       'shared.media': SharedMedia;
       'shared.points': SharedPoints;

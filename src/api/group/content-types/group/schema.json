@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "groups",
+  "info": {
+    "singularName": "group",
+    "pluralName": "groups",
+    "displayName": "Group"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": true
+    },
+    "PopularRoutes": {
+      "type": "component",
+      "component": "fields.popular-routes",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    }
+  }
+}
