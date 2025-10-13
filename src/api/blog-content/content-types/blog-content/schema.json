@@ -22,15 +22,6 @@
       "required": true,
       "unique": true
     },
-    "Image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "SEO": {
       "type": "component",
       "component": "shared.seo",
@@ -62,6 +53,15 @@
         "Travel Insurance",
         "Flight Delay & Cancellation"
       ]
+    },
+    "CTATitle": {
+      "type": "string",
+      "required": true
+    },
+    "CTADescription": {
+      "type": "text",
+      "required": true,
+      "unique": false
     }
   }
 }

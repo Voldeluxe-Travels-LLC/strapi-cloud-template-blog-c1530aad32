@@ -413,10 +413,10 @@ export interface ApiBlogContentBlogContent extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    CTADescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    CTATitle: Schema.Attribute.String & Schema.Attribute.Required;
     Description: Schema.Attribute.Text & Schema.Attribute.Required;
     Editor: Schema.Attribute.Component<'shared.rich-text', false> &
-      Schema.Attribute.Required;
-    Image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
