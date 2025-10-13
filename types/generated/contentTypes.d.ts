@@ -438,6 +438,21 @@ export interface ApiBlogContentBlogContent extends Struct.CollectionTypeSchema {
     Slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    Tag: Schema.Attribute.Enumeration<
+      [
+        'General',
+        'Latest Travel News',
+        'Flight Routes',
+        'One Way',
+        'Round Trip',
+        'Premium Economy',
+        'Business Class',
+        'Last Minute Experts',
+        'Travel Insurance',
+        'Flight Delay & Cancellation',
+      ]
+    > &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

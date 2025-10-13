@@ -46,6 +46,22 @@
       "required": true,
       "unique": false,
       "min": 1
+    },
+    "Tag": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "General",
+        "Latest Travel News",
+        "Flight Routes",
+        "One Way",
+        "Round Trip",
+        "Premium Economy",
+        "Business Class",
+        "Last Minute Experts",
+        "Travel Insurance",
+        "Flight Delay & Cancellation"
+      ]
     }
   }
 }
