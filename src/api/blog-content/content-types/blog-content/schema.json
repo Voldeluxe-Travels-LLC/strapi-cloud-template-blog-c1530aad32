@@ -38,7 +38,7 @@
       "unique": false,
       "min": 1
     },
-    "Tag": {
+    "Category": {
       "type": "enumeration",
       "required": true,
       "enum": [
@@ -62,6 +62,10 @@
       "type": "text",
       "required": true,
       "unique": false
+    },
+    "Keywords": {
+      "type": "string",
+      "required": true
     }
   }
 }

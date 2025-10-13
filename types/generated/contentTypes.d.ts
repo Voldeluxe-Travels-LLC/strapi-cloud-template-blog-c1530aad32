@@ -410,6 +410,21 @@ export interface ApiBlogContentBlogContent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Category: Schema.Attribute.Enumeration<
+      [
+        'General',
+        'Latest Travel News',
+        'Flight Routes',
+        'One Way',
+        'Round Trip',
+        'Premium Economy',
+        'Business Class',
+        'Last Minute Experts',
+        'Travel Insurance',
+        'Flight Delay & Cancellation',
+      ]
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -418,6 +433,7 @@ export interface ApiBlogContentBlogContent extends Struct.CollectionTypeSchema {
     Description: Schema.Attribute.Text & Schema.Attribute.Required;
     Editor: Schema.Attribute.Component<'shared.rich-text', false> &
       Schema.Attribute.Required;
+    Keywords: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -438,21 +454,6 @@ export interface ApiBlogContentBlogContent extends Struct.CollectionTypeSchema {
     Slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    Tag: Schema.Attribute.Enumeration<
-      [
-        'General',
-        'Latest Travel News',
-        'Flight Routes',
-        'One Way',
-        'Round Trip',
-        'Premium Economy',
-        'Business Class',
-        'Last Minute Experts',
-        'Travel Insurance',
-        'Flight Delay & Cancellation',
-      ]
-    > &
-      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
