@@ -510,6 +510,45 @@ export interface ApiBusinessClassBusinessClass extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
+          min: 1;
+        },
+        number
+      >;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCanadaToIndiaCanadaToIndia extends Struct.SingleTypeSchema {
+  collectionName: 'canada_to_indias';
+  info: {
+    displayName: 'Canada To India';
+    pluralName: 'canada-to-indias';
+    singularName: 'canada-to-india';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::canada-to-india.canada-to-india'
+    > &
+      Schema.Attribute.Private;
+    PopularRoutes: Schema.Attribute.Component<'fields.popular-routes', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 6;
           min: 1;
         },
         number
@@ -642,6 +681,7 @@ export interface ApiFamilyFamily extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
           min: 1;
         },
         number
@@ -774,6 +814,7 @@ export interface ApiGroupGroup extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
           min: 1;
         },
         number
@@ -808,6 +849,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
           min: 1;
         },
         number
@@ -846,6 +888,7 @@ export interface ApiLastMinuteExpertLastMinuteExpert
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
           min: 1;
         },
         number
@@ -883,6 +926,7 @@ export interface ApiOneWayOneWay extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
           min: 1;
         },
         number
@@ -921,6 +965,7 @@ export interface ApiPremiumEconomyPremiumEconomy
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
           min: 1;
         },
         number
@@ -987,6 +1032,7 @@ export interface ApiRoundTripRoundTrip extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
           min: 1;
         },
         number
@@ -1024,6 +1070,7 @@ export interface ApiStudentStudent extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
+          max: 6;
           min: 1;
         },
         number
@@ -1640,6 +1687,7 @@ declare module '@strapi/strapi' {
       'api::blog-content.blog-content': ApiBlogContentBlogContent;
       'api::blog.blog': ApiBlogBlog;
       'api::business-class.business-class': ApiBusinessClassBusinessClass;
+      'api::canada-to-india.canada-to-india': ApiCanadaToIndiaCanadaToIndia;
       'api::cancellation-policy.cancellation-policy': ApiCancellationPolicyCancellationPolicy;
       'api::deal-page.deal-page': ApiDealPageDealPage;
       'api::deal.deal': ApiDealDeal;

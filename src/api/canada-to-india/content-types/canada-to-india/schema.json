@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "last_minute_experts",
+  "collectionName": "canada_to_indias",
   "info": {
-    "singularName": "last-minute-expert",
-    "pluralName": "last-minute-experts",
-    "displayName": "LastMinuteExpert"
+    "singularName": "canada-to-india",
+    "pluralName": "canada-to-indias",
+    "displayName": "Canada To India"
   },
   "options": {
     "draftAndPublish": true
