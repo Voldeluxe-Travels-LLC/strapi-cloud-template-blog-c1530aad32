@@ -422,6 +422,7 @@ export interface ApiBlogContentBlogContent extends Struct.CollectionTypeSchema {
         'Last Minute Experts',
         'Travel Insurance',
         'Flight Delay & Cancellation',
+        'Canada To India',
       ]
     > &
       Schema.Attribute.Required;
